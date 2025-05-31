@@ -1,24 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import Headerpart from './Pages/Header';
+import SideBar from './Pages/Navbar';
 
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import { IconButton } from '@mui/material';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   < Headerpart/>
+  
+   <SideBar/>
+   
+   </>
   );
 }
 
