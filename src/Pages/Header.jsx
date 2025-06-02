@@ -41,7 +41,10 @@ function Headerpart() {
   sx={{backgroundColor:'#FFF',
      width: '100%',
     textTransform: 'none'
-    ,border:'none'
+    ,border:'none',
+    fontFamily:"Segoe UI",
+    color: 'var(--Dark-Gray-Dark-Gray-2, #252C32)',
+    fontStyle: 'normal'
    
   }}
   onClick={handleClick}
