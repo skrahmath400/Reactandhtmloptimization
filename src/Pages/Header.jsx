@@ -58,7 +58,7 @@ function Headerpart() {
             open={Boolean(anchorEl)}
             onClose={() => handleClose()}
           >
-            <MenuItem onClick={() => handleClose('Student')}>Student</MenuItem>
+            <MenuItem onClick={() => handleClose('Student')}>Students</MenuItem>
             <MenuItem onClick={() => handleClose('Employee')}>Employee</MenuItem>
             <MenuItem onClick={() => handleClose('Branch')}>Branch</MenuItem>
           </Menu>
