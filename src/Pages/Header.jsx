@@ -1,12 +1,25 @@
 import './Header.css';
 import chaitanyalogo from '../assets/chaitanyalogo.png'
-
+import React, { useState } from 'react';
 import Searchicon from '../assets/Searchicon.png'
-import { Button } from '@mui/material';
+
 import { Add } from '@mui/icons-material';
 import cashierlogo from '../assets/cashierlogo.png';
+import { Button, Menu, MenuItem } from '@mui/material';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 
 function Headerpart() {
+    const [anchorEl, setAnchorEl] = useState(null); // for menu position
+  const [selectedItem, setSelectedItem] = useState("Student"); // for current label
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (value) => {
+    if (value) setSelectedItem(value);
+    setAnchorEl(null);
+  };
     return (<>
 
         <header>
@@ -20,22 +33,33 @@ function Headerpart() {
                 </div>
                 <div className='header_middle'>
                     <div className="Student_selector_parent">
-                        <div className="student_selector_wrapper">
-                        <label className="student_selector_label">
-                        <div className="student_selector_text">
-                            <select defaultValue="Students ">
-                                <option value="Students" disabled>Students</option>
-                                <option value="Employee">Employee</option>
-                                <option value="Branch">Branch</option>
-                            </select>
-                        </div>
-                        <div className='arrow_icon'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M8 10.5L12 14.5L16 10.5" stroke="#6E7C87" />
-                            </svg>
-                        </div>
-                        </label>
-      </div>
+                         <Button className="student_selector_text"
+  variant="contained"
+  color="inherit" // or remove this line if you're using custom background
+  endIcon={<KeyboardArrowDownOutlinedIcon />}
+  size="small"
+  sx={{backgroundColor:'#FFF',
+     width: '100%',
+    textTransform: 'none'
+    ,border:'none'
+   
+  }}
+  onClick={handleClick}
+>
+  <span className="text-content">{selectedItem}</span>
+</Button>
+
+
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={() => handleClose()}
+          >
+            <MenuItem onClick={() => handleClose('Student')}>Student</MenuItem>
+            <MenuItem onClick={() => handleClose('Employee')}>Employee</MenuItem>
+            <MenuItem onClick={() => handleClose('Branch')}>Branch</MenuItem>
+          </Menu>
+
                     </div>
                     <div className='search_bar_parent'>
                         <div className='search_bar_icon'>
